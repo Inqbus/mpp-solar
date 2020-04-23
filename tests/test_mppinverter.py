@@ -53,6 +53,11 @@ class test_mppinverter(unittest.TestCase):
         inverter = mppinverter.mppInverter('TEST')
         self.assertEqual(inverter.getSerialNumber(), '9293333010501')
 
+    def test_serial_number(self):
+        """ getSerialNumber should return the test serial number """
+        inverter = mppinverter.mppInverter('/dev/ttyUSB0')
+        self.assertIsInstance(inverter.getSerialNumber(), string)
+
     def test_print_inverter_test(self):
         """ test string representation of inverter (TEST connection)"""
         inverter = mppinverter.mppInverter('TEST')
